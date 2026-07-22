@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R&J Solutions | Desarrollo de Software e IA</title>
+
+    <!-- Favicon / Tab Logo -->
+    <link rel="icon" type="image/png" href="logo.png.png">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Scroll Progress Line -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Custom Mouse Glow Tracker -->
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <!-- Background Elements for Tech Vibe -->
+    <div class="bg-glow top-left"></div>
+    <div class="bg-glow bottom-right"></div>
+    <div id="particles-js"></div>
+
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <img src="logo.png.png?v=2" alt="R&J Solutions Logo" class="brand-img"
+                    onerror="this.src='logo.png'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='inline-block';};">
+                <span class="logo-text fallback-logo" style="display: none;">R&J <span
+                        class="highlight">Solutions</span></span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#servicios">Servicios</a>
+                <a href="javascript:void(0)" onclick="toggleQuoterModal()">Propuestas</a>
+                <a href="#">Portafolio</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#cotizador" class="btn btn-primary">Cotizar Proyecto</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE FULLSCREEN OVERLAY MENU -->
+    <div class="mobile-overlay" id="mobile-overlay">
+        <button class="close-mobile-menu" onclick="toggleMobileMenu()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-nav-content">
+            <a href="#servicios" onclick="toggleMobileMenu()">Servicios</a>
+            <a href="#cotizador" onclick="toggleMobileMenu()">Propuestas</a>
+            <a href="#" onclick="toggleMobileMenu()">Portafolio</a>
+            <div class="mobile-nav-actions">
+                <a href="#cotizador" class="btn btn-primary" onclick="toggleMobileMenu()">Cotizar Proyecto</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
+                <div class="hero-badge">Innovación y Tecnología</div>
+                <h1 class="hero-title">Desarrollo de Software e IA <br><span class="text-gradient">Totalmente
+                        Automatizada</span></h1>
+                <p class="hero-subtitle">Escalamos tu negocio con sistemas inteligentes, aplicaciones a medida y
+                    automatización de procesos.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-lg" onclick="toggleContactModal()">
+                        <i class="fas fa-calendar-alt"></i> Agendar Demo
+                    </button>
+                    <button class="btn btn-outline btn-lg" onclick="toggleQuoterModal()">
+                        <i class="fas fa-calculator"></i> Probar Cotizador IA
+                    </button>
+                </div>
+
+                <!-- Floating mockups or abstract tech graphics -->
+                <div class="hero-graphics">
+                    <div class="glass-panel stat-card float-anim-1">
+                        <i class="fas fa-robot"></i>
+                        <div>
+                            <span class="stat-value">99.9%</span>
+                            <span class="stat-label">Precisión en IA</span>
+                        </div>
+                    </div>
+                    <div class="glass-panel stat-card float-anim-2">
+                        <i class="fas fa-bolt"></i>
+                        <div>
+                            <span class="stat-value">10x</span>
+                            <span class="stat-label">Más Rápido</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH PARTNERS / TRUST BADGES -->
+        <section class="tech-partners">
+            <div class="container">
+                <p class="partners-title">Potenciado por tecnologías de clase mundial</p>
+                <div class="partners-track">
+                    <div class="partners-grid-infinite">
+                        <div class="partner-logo"><i class="fab fa-aws"></i> AWS</div>
+                        <div class="partner-logo"><i class="fab fa-google"></i> Cloud</div>
+                        <div class="partner-logo"><i class="fab fa-microsoft"></i> Azure</div>
+                        <div class="partner-logo"><i class="fas fa-brain"></i> OpenAI</div>
+                        <div class="partner-logo"><i class="fab fa-react"></i> React</div>
+                        <div class="partner-logo"><i class="fab fa-node-js"></i> Node.js</div>
+                        <div class="partner-logo"><i class="fab fa-stripe"></i> Stripe</div>
+                        <!-- Duplicate for seamless scroll -->
+                        <div class="partner-logo"><i class="fab fa-aws"></i> AWS</div>
+                        <div class="partner-logo"><i class="fab fa-google"></i> Cloud</div>
+                        <div class="partner-logo"><i class="fab fa-microsoft"></i> Azure</div>
+                        <div class="partner-logo"><i class="fas fa-brain"></i> OpenAI</div>
+                        <div class="partner-logo"><i class="fab fa-react"></i> React</div>
+                        <div class="partner-logo"><i class="fab fa-node-js"></i> Node.js</div>
+                        <div class="partner-logo"><i class="fab fa-stripe"></i> Stripe</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section class="services" id="servicios">
+            <div class="container content-wrapper">
+                <div class="section-header reveal">
+                    <h2>Nuestros <span class="highlight">Servicios</span></h2>
+                    <p>Soluciones tecnológicas integrales y escalables para el nivel Enterprise.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card glass-panel reveal" data-delay="100">
+                        <div class="card-glow"></div>
+                        <div class="icon-wrapper">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Asistentes Multi-Agente</h3>
+                        <p>Despliegue de equipos de agentes IA autónomos que colaboran para resolver tareas complejas,
+                            atención al cliente y análisis de datos en tiempo real.</p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card glass-panel reveal" data-delay="200">
+                        <div class="card-glow"></div>
+                        <div class="icon-wrapper">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Desarrollo Web/App</h3>
+                        <p>Plataformas robustas, escalables y visualmente impresionantes. Arquitecturas full-stack
+                            modernas orientadas a la experiencia del usuario (UX/UI).</p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card glass-panel reveal" data-delay="300">
+                        <div class="card-glow"></div>
+                        <div class="icon-wrapper">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Automatización de Flujos</h3>
+                        <p>Conectamos todas tus herramientas. Automatizaciones avanzadas usando n8n, Python y Zapier
+                            para eliminar procesos manuales y ahorrar cientos de horas.</p>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card glass-panel reveal" data-delay="400">
+                        <div class="card-glow"></div>
+                        <div class="icon-wrapper">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Sistemas ERP/CRM a Medida</h3>
+                        <p>Centralización de la gestión operativa. Proveemos sistemas hechos a medida que se adaptan a
+                            tus reglas de negocio y no al revés.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ANIMATED CODE SECTION (NEW) -->
+        <section class="code-showcase" id="tecnologia">
+            <div class="container code-showcase-wrapper">
+                <div class="code-info reveal">
+                    <h2>Ingeniería de <span class="highlight">Alto Nivel</span></h2>
+                    <p>No solo construimos interfaces hermosas, desarrollamos motores robustos. Utilizamos arquitecturas
+                        limpias, código modular y las tecnologías más punteras para garantizar escalabilidad y
+                        seguridad.</p>
+
+                    <ul class="tech-list">
+                        <li><i class="fas fa-check"></i> Arquitecturas Serverless & Microservicios</li>
+                        <li><i class="fas fa-check"></i> Despliegue CI/CD Automatizado</li>
+                        <li><i class="fas fa-check"></i> Modelos IA Optimizados (LLMs locales y Cloud)</li>
+                        <li><i class="fas fa-check"></i> Bases de Datos de Alto Rendimiento</li>
+                    </ul>
+
+                    <div class="tech-stack-icons">
+                        <i class="fab fa-python active-icon" title="Python" onclick="changeCodeLanguage('python')"
+                            id="icon-python"></i>
+                        <i class="fab fa-react" title="React" onclick="changeCodeLanguage('react')" id="icon-react"></i>
+                        <i class="fab fa-node-js" title="Node.js" onclick="changeCodeLanguage('node')"
+                            id="icon-node"></i>
+                        <i class="fab fa-aws" title="AWS" onclick="changeCodeLanguage('aws')" id="icon-aws"></i>
+                        <i class="fab fa-docker" title="Docker" onclick="changeCodeLanguage('docker')"
+                            id="icon-docker"></i>
+                    </div>
+                </div>
+
+                <div class="code-window glass-panel reveal" data-delay="200">
+                    <div class="code-header">
+                        <div class="mac-btns">
+                            <span class="close"></span>
+                            <span class="minimize"></span>
+                            <span class="maximize"></span>
+                        </div>
+                        <div class="filename" id="code-filename">main.py - R&J Solutions IA Engine</div>
+                    </div>
+                    <div class="code-body">
+                        <pre><code id="animated-code"></code></pre>
+                        <span class="blinking-cursor">|</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORKFLOW / METHODOLOGY SECTION -->
+        <section class="workflow-section" id="metodologia">
+            <div class="container content-wrapper">
+                <div class="section-header reveal">
+                    <h2>Nuestra <span class="highlight">Metodología</span></h2>
+                    <p>Un proceso de ingeniería ágil y transparente diseñado para escalar tu visión al siguiente nivel.
+                    </p>
+                </div>
+
+                <div class="timeline">
+                    <!-- Step 1 -->
+                    <div class="timeline-item reveal" data-delay="100">
+                        <div class="timeline-dot">1</div>
+                        <div class="timeline-content glass-panel">
+                            <h3>Descubrimiento & Arquitectura</h3>
+                            <p>Analizamos tus flujos de trabajo, identificamos cuellos de botella y diseñamos la
+                                arquitectura técnica de la solución, definiendo tech stack y APIs.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="timeline-item reveal" data-delay="200">
+                        <div class="timeline-dot">2</div>
+                        <div class="timeline-content glass-panel">
+                            <h3>Desarrollo & Entrenamiento IA</h3>
+                            <p>Construimos el núcleo de tu aplicación. Implementamos modelos de lenguaje (LLMs)
+                                ajustados a tus datos y desarrollamos interfaces ultra-rápidas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="timeline-item reveal" data-delay="300">
+                        <div class="timeline-dot">3</div>
+                        <div class="timeline-content glass-panel">
+                            <h3>Testing Automatizado</h3>
+                            <p>Pruebas de estrés, QA y validaciones de seguridad de grado bancario (Pentesting).
+                                Revisamos cada microservicio antes de producción.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="timeline-item reveal" data-delay="400">
+                        <div class="timeline-dot">4</div>
+                        <div class="timeline-content glass-panel">
+                            <h3>Despliegue & Escalabilidad</h3>
+                            <p>Lanzamiento en infraestructura Serverless. Monitoreo 24/7 y optimización continua de
+                                costos y rendimiento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+               <!-- PREMIUM QUOTER MODAL -->
+        <div class="modal-overlay" id="quoter-modal">
+            <div class="modal-content glass-panel quoter-modal-content">
+                <button class="close-modal" onclick="toggleQuoterModal()"><i class="fas fa-times"></i></button>
+                
+                <div class="quoter-main-card">
+                    <!-- Progress Bar -->
+                    <div class="quoter-progress">
+                        <div class="progress-track">
+                            <div class="progress-fill" id="quoter-progress-fill"></div>
+                        </div>
+                        <div class="progress-steps">
+                            <div class="step-indicator active" data-step="1">1</div>
+                            <div class="step-indicator" data-step="2">2</div>
+                            <div class="step-indicator" data-step="3">3</div>
+                        </div>
+                    </div>
+
+                    <div class="quoter-header">
+                        <h2 id="quoter-step-title">¿Qué quieres construir?</h2>
+                        <p id="quoter-step-desc">Selecciona el tipo de plataforma para tu proyecto.</p>
+                    </div>
+
+                    <form id="premium-quoter-form" class="premium-quoter-form">
+                        <!-- Step 1: Project Type -->
+                        <div class="quoter-step active" id="step-1">
+                            <div class="premium-options-grid">
+                                <label class="premium-option">
+                                    <input type="radio" name="projectTypePremium" value="web" checked
+                                        onchange="updateQuoterUI()">
+                                    <div class="option-inner">
+                                        <div class="option-icon"><i class="fas fa-globe"></i></div>
+                                        <div class="option-info">
+                                            <h3>Web / Plataforma</h3>
+                                            <p>Sistemas internos, dashboards y sitios corporativos.</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="premium-option">
+                                    <input type="radio" name="projectTypePremium" value="app"
+                                        onchange="updateQuoterUI()">
+                                    <div class="option-inner">
+                                        <div class="option-icon"><i class="fas fa-mobile-alt"></i></div>
+                                        <div class="option-info">
+                                            <h3>App Móvil</h3>
+                                            <p>Aplicaciones nativas o híbridas para iOS y Android.</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="premium-option">
+                                    <input type="radio" name="projectTypePremium" value="ia"
+                                        onchange="updateQuoterUI()">
+                                    <div class="option-inner">
+                                        <div class="option-icon"><i class="fas fa-brain"></i></div>
+                                        <div class="option-info">
+                                            <h3>Sistema IA</h3>
+                                            <p>Automatización de procesos y agentes inteligentes.</p>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Complexity -->
+                        <div class="quoter-step" id="step-2">
+                            <div class="complexity-cards">
+                                <label class="complexity-card">
+                                    <input type="radio" name="complexityPremium" value="basic"
+                                        onchange="updateQuoterUI()">
+                                    <div class="card-inner">
+                                        <h4>MVP</h4>
+                                        <span>Básico</span>
+                                        <p>Funcionalidades esenciales para validar tu idea rápidamente.</p>
+                                    </div>
+                                </label>
+                                <label class="complexity-card">
+                                    <input type="radio" name="complexityPremium" value="standard" checked
+                                        onchange="updateQuoterUI()">
+                                    <div class="card-inner">
+                                        <h4>Empresarial</h4>
+                                        <span>Estándar</span>
+                                        <p>Arquitectura escalable, diseño premium e integraciones.</p>
+                                    </div>
+                                </label>
+                                <label class="complexity-card">
+                                    <input type="radio" name="complexityPremium" value="advanced"
+                                        onchange="updateQuoterUI()">
+                                    <div class="card-inner">
+                                        <h4>Gran Escala</h4>
+                                        <span>Avanzado</span>
+                                        <p>Sistemas complejos de alto tráfico y máxima seguridad.</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Result & Contact -->
+                        <div class="quoter-step" id="step-3">
+                            <div class="quoter-result-view">
+                                <div class="estimate-box glass-panel">
+                                    <span class="label">Inversión Estimada</span>
+                                    <div class="price-wrap">
+                                        <span class="curr">USD</span>
+                                        <span class="val" id="premium-price-display">$0</span>
+                                    </div>
+                                    <p class="disclaimer">Valor referencial basado en tus selecciones.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Footer -->
+                        <div class="quoter-footer">
+                            <button type="button" class="btn btn-text" id="quoter-prev" style="display: none;"
+                                onclick="prevQuoterStep()">
+                                <i class="fas fa-arrow-left"></i> Atrás
+                            </button>
+                            <button type="button" class="btn btn-primary" id="quoter-next" onclick="nextQuoterStep()">
+                                Siguiente <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button type="button" class="btn btn-primary" id="quoter-finish" style="display: none;"
+                                onclick="toggleQuoterModal(); toggleContactModal();">
+                                Solicitar Propuesta <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECTS SECTION -->
+        <section class="projects-section" id="proyectos">
+            <div class="container reveal">
+                <div class="section-header">
+                    <h2>Nuestros Proyectos</h2>
+                    <p>Una mirada a las soluciones que hemos construido para evolucionar ideas en realidades digitales.</p>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card glass-panel">
+                        <div class="project-image">
+                            <img src="images/project1.png" alt="Proyecto 1">
+                            <div class="project-overlay">
+                                <span class="project-category">IA & Automatización</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Sistema OmniChannel IA</h3>
+                            <p>Automatización de flujos de atención al cliente con agentes inteligentes multi-agente.</p>
+                            <button onclick="openProjectModal('project1')" class="btn btn-text">Ver Detalles <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card glass-panel">
+                        <div class="project-image">
+                            <img src="images/project2.png" alt="Proyecto 2">
+                            <div class="project-overlay">
+                                <span class="project-category">Desarrollo Web</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Portal Fintech Pro</h3>
+                            <p>Plataforma bancaria de alto rendimiento con arquitectura escalable y seguridad nivel enterprise.</p>
+                            <button onclick="openProjectModal('project2')" class="btn btn-text">Ver Detalles <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card glass-panel">
+                        <div class="project-image">
+                            <img src="images/project3.png" alt="Proyecto 3">
+                            <div class="project-overlay">
+                                <span class="project-category">E-commerce IA</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Smart Retail Engine</h3>
+                            <p>E-commerce con recomendaciones personalizadas basadas en el comportamiento del usuario en tiempo real.</p>
+                            <button onclick="openProjectModal('project3')" class="btn btn-text">Ver Detalles <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISION SECTION (NEW) -->
+        <section class="vision-section" id="vision">
+            <div class="container reveal">
+                <div class="vision-card glass-panel">
+                    <div class="vision-content">
+                        <h2>Cuéntanos tu visión</h2>
+                        <p>¿Tienes un reto empresarial o una idea que quieras automatizar? Nuestro equipo de ingenieros
+                            está listo para hacerlo realidad.</p>
+                        <div class="vision-actions">
+                            <a href="https://wa.me/584121059439" target="_blank" class="btn btn-outline hide-mobile"><i
+                                    class="fab fa-whatsapp"></i> Habla con un Experto</a>
+                        </div>
+                    </div>
+                    <div class="vision-image">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <img src="logo.png.png?v=2" alt="R&J Solutions Logo" class="brand-img"
+                        onerror="this.src='logo.png'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='inline-block';};">
+                    <span class="logo-text fallback-logo" style="display: none;">R&J <span
+                            class="highlight">Solutions</span></span>
+                </a>
+                <p>Construyendo el futuro del software mediante Inteligencia Artificial y metodologías ágiles.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Empresa</h4>
+                    <a href="#">Sobre Nosotros</a>
+                    <a href="#">Carreras</a>
+                    <a href="#">Contacto</a>
+                </div>
+                <div class="link-column">
+                    <h4>Servicios</h4>
+                    <a href="#">Desarrollo Web</a>
+                    <a href="#">Integración IA</a>
+                    <a href="#">Automatización</a>
+                </div>
+                <div class="link-column">
+                    <h4>Legal</h4>
+                    <a href="#">Términos y Condiciones</a>
+                    <a href="#">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 R&J Solutions. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING CHATBOT WIDGET -->
+    <div class="chatbot-widget" id="chatbot-widget">
+        <!-- Chat Window -->
+        <div class="chat-window" id="chat-window">
+            <div class="chat-header glass-panel">
+                <div class="chat-title">
+                    <div class="status-dot"></div>
+                    <span>Agente R&J Solutions</span>
+                </div>
+                <button class="close-chat" onclick="toggleChatbot()"><i class="fas fa-times"></i></button>
+            </div>
+
+            <div class="chat-body" id="chat-body">
+                <!-- Messages will be injected here via JS -->
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" placeholder="Escribe tu consulta..." id="chat-inputInput">
+                <button class="send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <!-- Floating Button -->
+        <button class="chatbot-btn glow-anim" onclick="toggleChatbot()" id="chatbot-toggle-btn">
+            <i class="fas fa-robot"></i>
+        </button>
+    </div>
+
+
+
+    <!-- CLIENT PORTAL LOGIN MODAL -->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content glass-panel bounce-in">
+            <button class="close-modal" onclick="toggleLoginModal()"><i class="fas fa-times"></i></button>
+
+            <div class="modal-header">
+                <h2>Portal de Cliente</h2>
+                <p>Ingresa para ver el estado de tu proyecto</p>
+            </div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="cliente@empresa.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span> Recuérdame
+                    </label>
+                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <!-- API Endpoint comment: Conectar con /api/v1/auth/login -->
+                <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PROJECT DETAILS MODAL -->
+    <div class="modal-overlay project-details-overlay" id="project-modal">
+        <div class="modal-content project-modal-content glass-panel">
+            <button class="close-modal" onclick="closeProjectModal()"><i class="fas fa-times"></i></button>
+            
+            <div class="project-modal-grid">
+                <!-- Left: Carousel -->
+                <div class="project-modal-media">
+                    <div class="project-carousel" id="project-carousel">
+                        <div class="carousel-track" id="carousel-track">
+                            <!-- Slides injected by JS -->
+                        </div>
+                        <button class="carousel-btn prev" onclick="moveCarousel(-1)"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn next" onclick="moveCarousel(1)"><i class="fas fa-chevron-right"></i></button>
+                        <div class="carousel-dots" id="carousel-dots"></div>
+                    </div>
+                </div>
+
+                <!-- Right: Details -->
+                <div class="project-modal-body">
+                    <div class="project-tag" id="modal-project-tag">Categoría</div>
+                    <h2 id="modal-project-title">Título del Proyecto</h2>
+                    <p class="project-description" id="modal-project-desc">Descripción detallada del proyecto...</p>
+                    
+                    <div class="project-features">
+                        <h3>Características Clave</h3>
+                        <ul id="modal-project-features">
+                            <!-- Features injected by JS -->
+                        </ul>
+                    </div>
+
+                    <div class="project-tech-stack">
+                        <h3>Tecnologías</h3>
+                        <div class="tech-tags" id="modal-project-tech">
+                            <!-- Tech tags injected by JS -->
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button class="btn btn-primary" onclick="closeProjectModal(); toggleContactModal();">
+                            Cotizar Similar <i class="fas fa-calculator"></i>
+                        </button>
+                        <a href="#" target="_blank" class="btn btn-outline hide-mobile" id="modal-project-link">
+                            Ver Demo Live <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT / QUOTE MODAL -->
+    <div class="modal-overlay" id="contact-modal">
+        <div class="modal-content glass-panel bounce-in">
+            <button class="close-modal" onclick="toggleContactModal()"><i class="fas fa-times"></i></button>
+
+            <div class="modal-header">
+                <h2>Solicitar Propuesta</h2>
+                <p>Déjanos tus datos y nos pondremos en contacto contigo en menos de 24 horas.</p>
+            </div>
+
+            <!-- FormSubmit Form -->
+            <form action="https://formsubmit.co/grupohym.ca@gmail.com" method="POST" id="contact-form">
+                <!-- Configuración oculta de FormSubmit -->
+                <input type="hidden" name="_subject" value="Nueva Solicitud de Propuesta - R&J Solutions">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <!-- Se puede cambiar a la url de tu página cuando esté en vivo: -->
+                <!-- <input type="hidden" name="_next" value="https://tupagina.com/gracias.html"> -->
+
+                <!-- Campo oculto para enviar el Precio Cotizado -->
+                <input type="hidden" name="Precio_Estimado" id="hidden-quote-price" value="">
+                <input type="hidden" name="Tipo_Proyecto" id="hidden-quote-type" value="">
+                <input type="hidden" name="Complejidad" id="hidden-quote-complexity" value="">
+
+                <div class="form-group">
+                    <label for="contact-name">Nombre Completo</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="name" id="contact-name" placeholder="Tu Nombre" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-email">Correo Electrónico</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" name="email" id="contact-email" placeholder="correo@empresa.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-phone">Teléfono / WhatsApp</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-phone"></i>
+                        <input type="text" name="phone" id="contact-phone" placeholder="+58 412 123 4567" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-details">Detalles breves del proyecto</label>
+                    <textarea name="message" id="contact-details" rows="3"
+                        placeholder="Cuéntanos un poco sobre tu idea..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" style="margin-top: 20px;">Enviar
+                    Solicitud</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MOBILE ACTION BAR (Fixed Bottom) -->
+    <div class="mobile-action-bar" id="mobile-action-bar">
+        <button class="action-btn" onclick="openQuoterModal()">
+            <i class="fas fa-calculator"></i>
+            <span>Cotizar</span>
+        </button>
+        <button class="action-btn principal" onclick="toggleContactModal()">
+            <i class="fas fa-paper-plane"></i>
+            <span>Contactar</span>
+        </button>
+        <a href="https://wa.me/584121059439" target="_blank" class="action-btn">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- Particles.js library for background effect -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
