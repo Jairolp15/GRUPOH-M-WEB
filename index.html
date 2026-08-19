@@ -47,8 +47,9 @@
 
             <nav class="nav-links">
                 <a href="#servicios">Servicios</a>
-                <a href="javascript:void(0)" onclick="toggleQuoterModal()">Propuestas</a>
-                <a href="#">Portafolio</a>
+                <a href="#cotizador">Cotizador</a>
+                <a href="#proyectos">Portafolio</a>
+                <a href="#faq">FAQ</a>
             </nav>
 
             <div class="nav-actions">
@@ -69,8 +70,9 @@
         </button>
         <div class="mobile-nav-content">
             <a href="#servicios" onclick="toggleMobileMenu()">Servicios</a>
-            <a href="#cotizador" onclick="toggleMobileMenu()">Propuestas</a>
-            <a href="#" onclick="toggleMobileMenu()">Portafolio</a>
+            <a href="#cotizador" onclick="toggleMobileMenu()">Cotizador</a>
+            <a href="#proyectos" onclick="toggleMobileMenu()">Portafolio</a>
+            <a href="#faq" onclick="toggleMobileMenu()">FAQ</a>
             <div class="mobile-nav-actions">
                 <a href="#cotizador" class="btn btn-primary" onclick="toggleMobileMenu()">Cotizar Proyecto</a>
             </div>
@@ -82,18 +84,13 @@
         <!-- HERO SECTION -->
         <section class="hero" id="home">
             <div class="container hero-content">
-                <div class="hero-badge">Innovación y Tecnología</div>
-                <h1 class="hero-title">Desarrollo de Software e IA <br><span class="text-gradient">Totalmente
-                        Automatizada</span></h1>
-                <p class="hero-subtitle">Escalamos tu negocio con sistemas inteligentes, aplicaciones a medida y
-                    automatización de procesos.</p>
+                <div class="hero-badge">🚀 Soluciones Tecnológicas de Alto Impacto</div>
+                <h1 class="hero-title">Multiplica la Eficiencia de tu Empresa con <br><span class="text-gradient">Software e IA a Medida</span></h1>
+                <p class="hero-subtitle">Automatizamos tus operaciones repetitivas, desarrollamos plataformas escalables y creamos asistentes IA que aumentan tus ventas y reducen hasta un 70% los tiempos operativos.</p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary btn-lg" onclick="toggleContactModal()">
-                        <i class="fas fa-calendar-alt"></i> Agendar Demo
-                    </button>
-                    <button class="btn btn-outline btn-lg" onclick="toggleQuoterModal()">
-                        <i class="fas fa-calculator"></i> Probar Cotizador IA
-                    </button>
+                    <a href="#cotizador" class="btn btn-primary btn-lg">
+                        <i class="fas fa-calculator"></i> Cotizar
+                    </a>
                 </div>
 
                 <!-- Floating mockups or abstract tech graphics -->
@@ -142,12 +139,153 @@
             </div>
         </section>
 
+        <!-- IN-PAGE PREMIUM QUOTER IA -->
+        <section class="premium-quoter reveal" id="cotizador">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Cotizador <span class="highlight">Inteligente</span></h2>
+                    <p>Calcula la inversión estimada para tu plataforma o solución de IA en solo 3 pasos.</p>
+                </div>
+
+                <div class="quoter-main-card glass-panel">
+                    <!-- Progress Bar -->
+                    <div class="quoter-progress">
+                        <div class="progress-track">
+                            <div class="progress-fill" id="quoter-progress-fill"></div>
+                        </div>
+                        <div class="progress-steps">
+                            <div class="step-indicator active" data-step="1">1</div>
+                            <div class="step-indicator" data-step="2">2</div>
+                            <div class="step-indicator" data-step="3">3</div>
+                        </div>
+                    </div>
+
+                    <div class="quoter-header">
+                        <h2 id="quoter-step-title">¿Qué quieres construir?</h2>
+                        <p id="quoter-step-desc">Selecciona el tipo de plataforma para tu proyecto.</p>
+                    </div>
+
+                    <form id="premium-quoter-form" class="premium-quoter-form">
+                        <!-- Step 1: Project Type -->
+                        <div class="quoter-step active" id="step-1">
+                            <div class="premium-options-grid">
+                                <label class="premium-option">
+                                    <input type="radio" name="projectTypePremium" value="web" checked
+                                        onchange="updateQuoterUI()">
+                                    <div class="option-inner">
+                                        <div class="option-icon"><i class="fas fa-globe"></i></div>
+                                        <div class="option-info">
+                                            <h3>Web / Plataforma</h3>
+                                            <p>Sistemas internos, dashboards interactivos y sitios corporativos de alta velocidad.</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="premium-option">
+                                    <input type="radio" name="projectTypePremium" value="app"
+                                        onchange="updateQuoterUI()">
+                                    <div class="option-inner">
+                                        <div class="option-icon"><i class="fas fa-mobile-alt"></i></div>
+                                        <div class="option-info">
+                                            <h3>App Móvil</h3>
+                                            <p>Aplicaciones nativas o híbridas para iOS y Android con sincronización en la nube.</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="premium-option">
+                                    <input type="radio" name="projectTypePremium" value="ia"
+                                        onchange="updateQuoterUI()">
+                                    <div class="option-inner">
+                                        <div class="option-icon"><i class="fas fa-brain"></i></div>
+                                        <div class="option-info">
+                                            <h3>Sistema IA & Automatización</h3>
+                                            <p>Agentes autónomos, flujos multi-agente y automatización operativa con LLMs.</p>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Complexity -->
+                        <div class="quoter-step" id="step-2">
+                            <div class="complexity-cards">
+                                <label class="complexity-card">
+                                    <input type="radio" name="complexityPremium" value="basic"
+                                        onchange="updateQuoterUI()">
+                                    <div class="card-inner">
+                                        <h4>MVP</h4>
+                                        <span>Básico</span>
+                                        <p>Funcionalidades clave para validar tu producto o automatización rápidamente.</p>
+                                    </div>
+                                </label>
+                                <label class="complexity-card">
+                                    <input type="radio" name="complexityPremium" value="standard" checked
+                                        onchange="updateQuoterUI()">
+                                    <div class="card-inner">
+                                        <h4>Empresarial</h4>
+                                        <span>Estándar</span>
+                                        <p>Arquitectura escalable, diseño UI/UX premium, base de datos e integraciones clave.</p>
+                                    </div>
+                                </label>
+                                <label class="complexity-card">
+                                    <input type="radio" name="complexityPremium" value="advanced"
+                                        onchange="updateQuoterUI()">
+                                    <div class="card-inner">
+                                        <h4>Gran Escala</h4>
+                                        <span>Avanzado</span>
+                                        <p>Sistemas de alto volumen, microservicios, seguridad bancaria e IA personalizada.</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Result & Contact -->
+                        <div class="quoter-step" id="step-3">
+                            <div class="quoter-result-view">
+                                <div class="estimate-box glass-panel">
+                                    <span class="label">Inversión Estimada</span>
+                                    <div class="price-wrap">
+                                        <span class="curr">USD</span>
+                                        <span class="val" id="premium-price-display">$0</span>
+                                    </div>
+                                    <p class="disclaimer">Valor referencial transparente basado en el alcance seleccionado.</p>
+                                    
+                                    <div class="quoter-action-group">
+                                        <button type="button" class="btn btn-primary" onclick="toggleContactModal()">
+                                            <i class="fas fa-paper-plane"></i> Solicitar Propuesta Formal
+                                        </button>
+                                        <button type="button" class="btn btn-whatsapp-action" onclick="sendQuoterWhatsApp()">
+                                            <i class="fab fa-whatsapp"></i> Cotizar por WhatsApp
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Footer -->
+                        <div class="quoter-footer">
+                            <button type="button" class="btn btn-text" id="quoter-prev" style="display: none;"
+                                onclick="prevQuoterStep()">
+                                <i class="fas fa-arrow-left"></i> Atrás
+                            </button>
+                            <button type="button" class="btn btn-primary" id="quoter-next" onclick="nextQuoterStep()">
+                                Siguiente <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button type="button" class="btn btn-primary" id="quoter-finish" style="display: none;"
+                                onclick="toggleContactModal()">
+                                Solicitar Propuesta <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
         <!-- SERVICES SECTION -->
         <section class="services" id="servicios">
             <div class="container content-wrapper">
                 <div class="section-header reveal">
                     <h2>Nuestros <span class="highlight">Servicios</span></h2>
-                    <p>Soluciones tecnológicas integrales y escalables para el nivel Enterprise.</p>
+                    <p>Creamos soluciones digitales prácticas y fáciles de usar para hacer crecer tu empresa.</p>
                 </div>
 
                 <div class="services-grid">
@@ -155,11 +293,10 @@
                     <div class="service-card glass-panel reveal" data-delay="100">
                         <div class="card-glow"></div>
                         <div class="icon-wrapper">
-                            <i class="fas fa-network-wired"></i>
+                            <i class="fas fa-robot"></i>
                         </div>
-                        <h3>Asistentes Multi-Agente</h3>
-                        <p>Despliegue de equipos de agentes IA autónomos que colaboran para resolver tareas complejas,
-                            atención al cliente y análisis de datos en tiempo real.</p>
+                        <h3>Agentes de Inteligencia Artificial</h3>
+                        <p>Atención al cliente 24/7 y respuestas automáticas por WhatsApp y web para que nunca pierdas una venta.</p>
                     </div>
 
                     <!-- Service 2 -->
@@ -168,31 +305,28 @@
                         <div class="icon-wrapper">
                             <i class="fas fa-laptop-code"></i>
                         </div>
-                        <h3>Desarrollo Web/App</h3>
-                        <p>Plataformas robustas, escalables y visualmente impresionantes. Arquitecturas full-stack
-                            modernas orientadas a la experiencia del usuario (UX/UI).</p>
+                        <h3>Páginas Web y Aplicaciones</h3>
+                        <p>Sitios modernos, ultra rápidos y adaptados a celulares para presentar tu negocio y vender tus servicios en internet.</p>
                     </div>
 
                     <!-- Service 3 -->
                     <div class="service-card glass-panel reveal" data-delay="300">
                         <div class="card-glow"></div>
                         <div class="icon-wrapper">
-                            <i class="fas fa-cogs"></i>
+                            <i class="fas fa-bolt"></i>
                         </div>
-                        <h3>Automatización de Flujos</h3>
-                        <p>Conectamos todas tus herramientas. Automatizaciones avanzadas usando n8n, Python y Zapier
-                            para eliminar procesos manuales y ahorrar cientos de horas.</p>
+                        <h3>Automatización de Procesos</h3>
+                        <p>Conectamos tus herramientas para eliminar tareas manuales repetitivas y ahorrar cientos de horas a tu equipo.</p>
                     </div>
 
                     <!-- Service 4 -->
                     <div class="service-card glass-panel reveal" data-delay="400">
                         <div class="card-glow"></div>
                         <div class="icon-wrapper">
-                            <i class="fas fa-database"></i>
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3>Sistemas ERP/CRM a Medida</h3>
-                        <p>Centralización de la gestión operativa. Proveemos sistemas hechos a medida que se adaptan a
-                            tus reglas de negocio y no al revés.</p>
+                        <h3>Sistemas de Gestión a Medida</h3>
+                        <p>Plataformas personalizadas para administrar tus ventas, clientes, inventario y finanzas en un solo lugar.</p>
                     </div>
                 </div>
             </div>
@@ -296,135 +430,6 @@
             </div>
         </section>
 
-               <!-- PREMIUM QUOTER MODAL -->
-        <div class="modal-overlay" id="quoter-modal">
-            <div class="modal-content glass-panel quoter-modal-content">
-                <button class="close-modal" onclick="toggleQuoterModal()"><i class="fas fa-times"></i></button>
-                
-                <div class="quoter-main-card">
-                    <!-- Progress Bar -->
-                    <div class="quoter-progress">
-                        <div class="progress-track">
-                            <div class="progress-fill" id="quoter-progress-fill"></div>
-                        </div>
-                        <div class="progress-steps">
-                            <div class="step-indicator active" data-step="1">1</div>
-                            <div class="step-indicator" data-step="2">2</div>
-                            <div class="step-indicator" data-step="3">3</div>
-                        </div>
-                    </div>
-
-                    <div class="quoter-header">
-                        <h2 id="quoter-step-title">¿Qué quieres construir?</h2>
-                        <p id="quoter-step-desc">Selecciona el tipo de plataforma para tu proyecto.</p>
-                    </div>
-
-                    <form id="premium-quoter-form" class="premium-quoter-form">
-                        <!-- Step 1: Project Type -->
-                        <div class="quoter-step active" id="step-1">
-                            <div class="premium-options-grid">
-                                <label class="premium-option">
-                                    <input type="radio" name="projectTypePremium" value="web" checked
-                                        onchange="updateQuoterUI()">
-                                    <div class="option-inner">
-                                        <div class="option-icon"><i class="fas fa-globe"></i></div>
-                                        <div class="option-info">
-                                            <h3>Web / Plataforma</h3>
-                                            <p>Sistemas internos, dashboards y sitios corporativos.</p>
-                                        </div>
-                                    </div>
-                                </label>
-                                <label class="premium-option">
-                                    <input type="radio" name="projectTypePremium" value="app"
-                                        onchange="updateQuoterUI()">
-                                    <div class="option-inner">
-                                        <div class="option-icon"><i class="fas fa-mobile-alt"></i></div>
-                                        <div class="option-info">
-                                            <h3>App Móvil</h3>
-                                            <p>Aplicaciones nativas o híbridas para iOS y Android.</p>
-                                        </div>
-                                    </div>
-                                </label>
-                                <label class="premium-option">
-                                    <input type="radio" name="projectTypePremium" value="ia"
-                                        onchange="updateQuoterUI()">
-                                    <div class="option-inner">
-                                        <div class="option-icon"><i class="fas fa-brain"></i></div>
-                                        <div class="option-info">
-                                            <h3>Sistema IA</h3>
-                                            <p>Automatización de procesos y agentes inteligentes.</p>
-                                        </div>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Step 2: Complexity -->
-                        <div class="quoter-step" id="step-2">
-                            <div class="complexity-cards">
-                                <label class="complexity-card">
-                                    <input type="radio" name="complexityPremium" value="basic"
-                                        onchange="updateQuoterUI()">
-                                    <div class="card-inner">
-                                        <h4>MVP</h4>
-                                        <span>Básico</span>
-                                        <p>Funcionalidades esenciales para validar tu idea rápidamente.</p>
-                                    </div>
-                                </label>
-                                <label class="complexity-card">
-                                    <input type="radio" name="complexityPremium" value="standard" checked
-                                        onchange="updateQuoterUI()">
-                                    <div class="card-inner">
-                                        <h4>Empresarial</h4>
-                                        <span>Estándar</span>
-                                        <p>Arquitectura escalable, diseño premium e integraciones.</p>
-                                    </div>
-                                </label>
-                                <label class="complexity-card">
-                                    <input type="radio" name="complexityPremium" value="advanced"
-                                        onchange="updateQuoterUI()">
-                                    <div class="card-inner">
-                                        <h4>Gran Escala</h4>
-                                        <span>Avanzado</span>
-                                        <p>Sistemas complejos de alto tráfico y máxima seguridad.</p>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Step 3: Result & Contact -->
-                        <div class="quoter-step" id="step-3">
-                            <div class="quoter-result-view">
-                                <div class="estimate-box glass-panel">
-                                    <span class="label">Inversión Estimada</span>
-                                    <div class="price-wrap">
-                                        <span class="curr">USD</span>
-                                        <span class="val" id="premium-price-display">$0</span>
-                                    </div>
-                                    <p class="disclaimer">Valor referencial basado en tus selecciones.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Navigation Footer -->
-                        <div class="quoter-footer">
-                            <button type="button" class="btn btn-text" id="quoter-prev" style="display: none;"
-                                onclick="prevQuoterStep()">
-                                <i class="fas fa-arrow-left"></i> Atrás
-                            </button>
-                            <button type="button" class="btn btn-primary" id="quoter-next" onclick="nextQuoterStep()">
-                                Siguiente <i class="fas fa-arrow-right"></i>
-                            </button>
-                            <button type="button" class="btn btn-primary" id="quoter-finish" style="display: none;"
-                                onclick="toggleQuoterModal(); toggleContactModal();">
-                                Solicitar Propuesta <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
         <!-- PROJECTS SECTION -->
         <section class="projects-section" id="proyectos">
             <div class="container reveal">
@@ -482,6 +487,73 @@
             </div>
         </section>
 
+        <!-- FAQ SECTION (COMMERCIAL OBJECTION HANDLING) -->
+        <section class="faq-section reveal" id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Preguntas <span class="highlight">Frecuentes</span></h2>
+                    <p>Todo lo que necesitas saber antes de iniciar tu proyecto de software o inteligencia artificial con nosotros.</p>
+                </div>
+
+                <div class="faq-container">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item active">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>¿Cuánto tiempo toma desarrollar una solución o MVP?</h3>
+                            <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Un Producto Mínimo Viable (MVP) o flujo de automatización clave suele entregarse en un plazo de 2 a 4 semanas. Proyectos más robustos o plataformas empresariales completas típicamente toman entre 6 y 10 semanas, con entregas funcionales y demostraciones en vivo al final de cada sprint.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>¿Cómo garantizan la seguridad y confidencialidad de los datos de mi empresa?</h3>
+                            <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Trabajamos bajo acuerdos estrictos de confidencialidad (NDA). Nuestras soluciones implementan cifrado de extremo a extremo (AES-256), servidores privados y arquitecturas seguras. Los datos de tu negocio nunca son públicos ni se emplean para entrenar modelos de IA de terceros sin tu autorización expresa.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>¿Se pueden integrar estas soluciones con las herramientas que ya usamos?</h3>
+                            <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sí, al 100%. Conectamos nuestros sistemas vía API con WhatsApp Business, CRMs (HubSpot, Zoho, Salesforce), ERPs (SAP, Odoo), pasarelas de pago (Stripe, PayPal, bancos locales), bases de datos SQL/NoSQL y plataformas de productividad como Slack, Notion o Google Workspace.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>¿Qué incluye el soporte y mantenimiento post-lanzamiento?</h3>
+                            <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Todos nuestros desarrollos incluyen garantía técnica, monitoreo proactivo de servidores en la nube, resolución prioritaria de incidencias en menos de 24 horas y planes de escalamiento continuo para añadir nuevas funciones a medida que tu negocio crece.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>¿Cómo es el esquema de pagos y la metodología de trabajo?</h3>
+                            <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Trabajamos por hitos de entrega transparentes (típicamente 50% anticipo al iniciar y 50% contra entrega y satisfacción de pruebas QA). Tienes acceso a un tablero de control y reuniones periódicas para seguir el progreso en tiempo real.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- VISION SECTION (NEW) -->
         <section class="vision-section" id="vision">
             <div class="container reveal">
@@ -491,7 +563,7 @@
                         <p>¿Tienes un reto empresarial o una idea que quieras automatizar? Nuestro equipo de ingenieros
                             está listo para hacerlo realidad.</p>
                         <div class="vision-actions">
-                            <a href="https://wa.me/584121059439" target="_blank" class="btn btn-outline hide-mobile"><i
+                            <a href="https://wa.me/584121085553?text=Hola%20R%26J%20Solutions,%20quiero%20hablar%20con%20un%20experto%20sobre%20un%20proyecto." target="_blank" class="btn btn-outline hide-mobile"><i
                                     class="fab fa-whatsapp"></i> Habla con un Experto</a>
                         </div>
                     </div>
@@ -511,7 +583,7 @@
                     <img src="logo.png.png?v=2" alt="R&J Solutions Logo" class="brand-img"
                         onerror="this.src='logo.png'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='inline-block';};">
                     <span class="logo-text fallback-logo" style="display: none;">R&J <span
-                            class="highlight">Solutions</span></span>
+                        class="highlight">Solutions</span></span>
                 </a>
                 <p>Construyendo el futuro del software mediante Inteligencia Artificial y metodologías ágiles.</p>
                 <div class="social-links">
@@ -569,12 +641,20 @@
         </div>
 
         <!-- Floating Button -->
-        <button class="chatbot-btn glow-anim" onclick="toggleChatbot()" id="chatbot-toggle-btn">
+        <button class="chatbot-btn glow-anim" onclick="toggleChatbot()" id="chatbot-toggle-btn" title="Asistente Virtual">
             <i class="fas fa-robot"></i>
         </button>
     </div>
 
-
+    <!-- FLOATING WHATSAPP BUTTON WITH LIVE STATUS -->
+    <a href="https://wa.me/584121085553?text=Hola%20R%26J%20Solutions,%20tengo%20una%20consulta%20sobre%20sus%20servicios." target="_blank" class="whatsapp-floating" title="Chatear por WhatsApp">
+        <div class="whatsapp-float-btn">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="whatsapp-float-text">
+            ¿Hablamos por WhatsApp? • En línea
+        </div>
+    </a>
 
     <!-- CLIENT PORTAL LOGIN MODAL -->
     <div class="modal-overlay" id="login-modal">
@@ -738,7 +818,7 @@
             <i class="fas fa-paper-plane"></i>
             <span>Contactar</span>
         </button>
-        <a href="https://wa.me/584121059439" target="_blank" class="action-btn">
+        <a href="https://wa.me/584121085553?text=Hola%20R%26J%20Solutions,%20deseo%20m%C3%A1s%20informaci%C3%B3n." target="_blank" class="action-btn">
             <i class="fab fa-whatsapp"></i>
             <span>WhatsApp</span>
         </a>

@@ -54,6 +54,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize Scroll Reveal
     initScrollReveal();
+
+    // Initialize Quoter UI
+    if (document.getElementById('step-1')) {
+        updateQuoterUI();
+    }
 });
 
 /* ==========================================================================
@@ -401,17 +406,30 @@ const quoterStepData = {
     3: { title: "¡Tu Estimado está Listo!", desc: "Basado en tu selección, aquí tienes una inversión referencial." }
 };
 
-const basePrices = {
-    web: 200,
-    app: 500,
-    ia: 700
+const projectPricing = {
+    web: {
+        basic: 120,     // Web / Landing MVP
+        standard: 250,  // Web Corporativa / Plataforma
+        advanced: 450   // E-commerce / Portal Gran Escala
+    },
+    app: {
+        basic: 250,     // App Móvil MVP
+        standard: 450,  // App Móvil Empresarial
+        advanced: 750   // App Gran Escala
+    },
+    ia: {
+        basic: 150,     // Chatbot / Automatización Básica
+        standard: 300,  // Agente IA de Ventas & CRM
+        advanced: 550   // Sistema Multi-Agente Avanzado
+    }
 };
 
-const complexityMultipliers = {
-    basic: 0.75,
-    standard: 1.1,
-    advanced: 1.8
-};
+function getCalculatedPrice(type, complexity) {
+    if (projectPricing[type] && projectPricing[type][complexity]) {
+        return projectPricing[type][complexity];
+    }
+    return 150;
+}
 
 
 function updateQuoterUI() {
@@ -488,14 +506,14 @@ function calculatePremiumEstimate() {
         if (radio.checked) { selectedComp = radio.value; break; }
     }
 
-    const price = Math.round(basePrices[selectedType] * complexityMultipliers[selectedComp]);
+    const price = getCalculatedPrice(selectedType, selectedComp);
     
     // Animate Price
     animatePremiumPrice(price);
 
     // Update hidden fields for contact form
-    const typeMap = { web: 'Web / Plataforma', app: 'App Móvil', ia: 'Sistema IA' };
-    const compMap = { basic: 'Básico (MVP)', standard: 'Estándar', advanced: 'Avanzado' };
+    const typeMap = { web: 'Web / Plataforma', app: 'App Móvil', ia: 'Sistema IA & Automatización' };
+    const compMap = { basic: 'Básico (MVP)', standard: 'Empresarial Estándar', advanced: 'Gran Escala' };
     
     document.getElementById('hidden-quote-price').value = '$' + price.toLocaleString() + ' USD';
     document.getElementById('hidden-quote-type').value = typeMap[selectedType];
@@ -524,17 +542,62 @@ function animatePremiumPrice(target) {
 
 // Logic to open quoter (scrolling to section)
 window.openQuoterModal = function() {
-    toggleQuoterModal();
+    scrollToQuoter();
 };
 
 function toggleQuoterModal() {
-    const modal = document.getElementById('quoter-modal');
-    if (modal) {
-        modal.classList.toggle('active');
-        if (modal.classList.contains('active')) {
-            currentQuoterStep = 1;
-            updateQuoterUI();
-        }
+    scrollToQuoter();
+}
+
+function scrollToQuoter() {
+    const quoterSection = document.getElementById('cotizador');
+    if (quoterSection) {
+        const navbar = document.getElementById('navbar');
+        const navHeight = (navbar ? navbar.offsetHeight : 0) || 80;
+        const targetPosition = quoterSection.getBoundingClientRect().top + (window.scrollY || window.pageYOffset) - navHeight;
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Send Quote to WhatsApp with prefilled message
+function sendQuoterWhatsApp() {
+    const projectRadios = document.getElementsByName('projectTypePremium');
+    let selectedType = 'web';
+    for (const radio of projectRadios) {
+        if (radio.checked) { selectedType = radio.value; break; }
+    }
+
+    const complexityRadios = document.getElementsByName('complexityPremium');
+    let selectedComp = 'standard';
+    for (const radio of complexityRadios) {
+        if (radio.checked) { selectedComp = radio.value; break; }
+    }
+
+    const price = getCalculatedPrice(selectedType, selectedComp);
+    const typeMap = { web: 'Web / Plataforma', app: 'App Móvil', ia: 'Sistema IA & Automatización' };
+    const compMap = { basic: 'Básico (MVP)', standard: 'Empresarial Estándar', advanced: 'Gran Escala' };
+
+    const text = `Hola R&J Solutions, acabo de cotizar un proyecto en su web:\n\n📌 *Tipo de Proyecto:* ${typeMap[selectedType]}\n⚙️ *Complejidad:* ${compMap[selectedComp]}\n💰 *Inversión Estimada:* $${price.toLocaleString()} USD\n\n¿Podemos agendar una llamada o revisar detalles de mi proyecto?`;
+    const url = `https://wa.me/584121085553?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+}
+
+// FAQ Accordion Toggle
+function toggleFaq(button) {
+    const faqItem = button.closest('.faq-item');
+    const wasActive = faqItem.classList.contains('active');
+    
+    // Close other FAQ items
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // Toggle clicked item
+    if (!wasActive) {
+        faqItem.classList.add('active');
     }
 }
 
@@ -796,7 +859,7 @@ const projectsData = {
         ],
         tech: ["Python", "FastAPI", "OpenAI", "React", "Redis"],
         images: ["images/project1.png", "images/project1_1.png", "images/project1_2.png"],
-        link: "https://wa.me/584121059439"
+        link: "https://wa.me/584121085553"
     },
     project2: {
         tag: "Desarrollo Web",
